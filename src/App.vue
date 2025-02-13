@@ -1,29 +1,24 @@
 <script setup>
 import { ref } from 'vue';
-import contriesComponent from './components/contriesComponent.vue';
+import TaskList from './components/TaskList.vue';
 
- const saarcCountry=ref([
-  {name: "Bangladesh", population: 169400000,  capital: "Dhaka"},
-  {name: "India", population: 1417000000,  capital: "New Delhi"},
-  {name: "USA", population: 331900000,  capital: "Washington"},
-  {name: "Germany", population: 83200000,  capital: "Berlin"},
-  {name: "Japan", population: 125800000,  capital: "Tokyo"}
-])
-
-function addCountry(){
-  saarcCountry.value.push({name:"country-t", population:4123, capital:"tom"})
-}
+ 
+ const taskList=ref([
+  {id:1, name:"task 1" , completed: false },
+  {id:2, name:"task 2" , completed: false },
+  {id:3, name:"task 3" , completed: false },
+  {id:4, name:"task 4" , completed: false },
+  {id:5, name:"task 5" , completed: false },
+ ])
 </script>
  
 <template >
-  <h1 class=" text-center text-5xl mb-10">List of Country</h1>
-  <hr>
-  <p class="m-10">{{ saarcCountry }}</p>
-
-<contries-component  :countries="saarcCountry" />
-<p class=" text-center">
-  <button @click="addCountry()" class=" border-2 bg-gradient-to-b rounded">Add New Country</button>
-</p>
+<p class="text-center text-4xl">Task Products</p>
+<hr>
+<p class="m-10">{{ taskList }}</p>
+<div>
+  <task-list :tasks="taskList" />
+</div>
 </template>
  
 <style scoped>
